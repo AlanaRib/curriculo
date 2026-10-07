@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Currículo — Alana Cristina de Moraes Ribeiro</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+>
+
+<style>
+
+    /* ==================================================
+       VARIÁVEIS
+    ================================================== */
+
+    :root {
+
+        --vermelho: #6b0700;
+        --vermelho-escuro: #430400;
+        --vermelho-suave: #8c2921;
+        --vermelho-claro: #b45b52;
+
+        --preto: #171514;
+        --cinza-escuro: #383331;
+        --cinza: #706b68;
+        --cinza-claro: #d8d2ce;
+
+        --fundo: #f5f2ef;
+        --branco: #fffdfa;
+
+        --fonte-titulo: "Cormorant Garamond", serif;
+        --fonte-corpo: "Manrope", sans-serif;
+
+        --largura: 1180px;
+
+    }
+
+
+    /* ==================================================
+       RESET
+    ================================================== */
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+
+    body {
+        background: var(--fundo);
+        color: var(--preto);
+        font-family: var(--fonte-corpo);
+        line-height: 1.7;
+        overflow-x: hidden;
+    }
+
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+
+    button,
+    summary {
+        font-family: inherit;
+    }
+
+
+    /* ==================================================
+       LINHA DE SCROLL
+    ================================================== */
+
+    .scroll-line {
+        position: fixed;
+        top: 8vh;
+        right: 34px;
+        width: 1px;
+        height: 84vh;
+
+        background: linear-gradient(
+            to bottom,
+            transparent,
+            rgba(67, 4, 0, 0.18) 10%,
+            rgba(67, 4, 0, 0.32) 50%,
+            rgba(67, 4, 0, 0.18) 90%,
+            transparent
+        );
+
+        z-index: 20;
+        pointer-events: none;
+    }
+
+
+    .scroll-light {
+        position: absolute;
+        left: 50%;
+
+        width: 5px;
+        height: 5px;
+
+        transform: translate(-50%, -50%);
+
+        border-radius: 50%;
+
+        background: var(--vermelho);
+
+        box-shadow:
+            0 0 6px rgba(107, 7, 0, 0.45),
+            0 0 14px rgba(67, 4, 0, 0.16);
+
+        transition:
+            top 0.08s linear,
+            box-shadow 0.2s ease;
+    }
+
+
+    .scroll-light::before {
+        content: "";
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        width: 18px;
+        height: 18px;
+
+        transform: translate(-50%, -50%);
+
+        border-radius: 50%;
+
+        background: radial-gradient(
+            circle,
+            rgba(107, 7, 0, 0.11) 0%,
+            rgba(67, 4, 0, 0.05) 35%,
+            transparent 70%
+        );
+
+        pointer-events: none;
+    }
+
+
+    .scroll-trail {
+        position: absolute;
+        left: 50%;
+
+        width: 1px;
+
+        transform: translateX(-50%);
+
+        background: linear-gradient(
+            to bottom,
+            transparent,
+            rgba(67, 4, 0, 0.14),
+            transparent
+        );
+
+        opacity: 0;
+
+        transition:
+            height 0.12s ease,
+            opacity 0.2s ease;
+    }
+
+
+    /* ==================================================
+       CONTAINER
+    ================================================== */
+
+    .container {
+        width: min(
+            calc(100% - 100px),
+            var(--largura)
+        );
+
+        margin: 0 auto;
+    }
+
+
+    /* ==================================================
+       CABEÇALHO
+    ================================================== */
+
+    header {
+        padding: 90px 0 70px;
+
+        border-bottom: 1px solid var(--cinza-claro);
+    }
+
+
+    .header-content {
+        max-width: 950px;
+    }
+
+
+    .eyebrow {
+        margin-bottom: 14px;
+
+        color: var(--vermelho);
+
+        font-size: 0.78rem;
+        font-weight: 700;
+
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+    }
+
+
+    h1 {
+        margin-bottom: 24px;
+
+        color: var(--preto);
+
+        font-family: var(--fonte-titulo);
+        font-size: clamp(3.2rem, 7vw, 5.8rem);
+        font-weight: 600;
+
+        line-height: 0.95;
+        letter-spacing: -0.03em;
+    }
+
+
+    .intro {
+        max-width: 850px;
+
+        color: var(--cinza-escuro);
+
+        font-size: 1rem;
+        line-height: 1.85;
+    }
+
+
+    .intro + .intro {
+        margin-top: 16px;
+    }
+
+
+    .contact {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 26px;
+
+        margin-top: 30px;
+
+        color: var(--cinza);
+        font-size: 0.88rem;
+    }
+
+
+    .contact a {
+        transition:
+            color 0.2s ease;
+    }
+
+
+    .contact a:hover {
+        color: var(--vermelho);
+    }
+
+
+    /* ==================================================
+       NAVEGAÇÃO
+    ================================================== */
+
+    .social-links {
+        display: flex;
+        gap: 20px;
+
+        margin-top: 22px;
+    }
+
+
+    .social-links a {
+        color: var(--vermelho);
+
+        font-size: 0.82rem;
+        font-weight: 700;
+
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+
+        transition:
+            color 0.2s ease,
+            transform 0.2s ease;
+    }
+
+
+    .social-links a:hover {
+        color: var(--vermelho-suave);
+        transform: translateY(-2px);
+    }
+
+
+    /* ==================================================
+       SEÇÕES
+    ================================================== */
+
+    main {
+        padding: 70px 0 100px;
+    }
+
+
+    .section {
+        margin-bottom: 70px;
+    }
+
+
+    .section-header {
+        display: flex;
+        align-items: baseline;
+        gap: 20px;
+
+        margin-bottom: 28px;
+    }
+
+
+    .section-number {
+        color: var(--vermelho);
+
+        font-family: var(--fonte-titulo);
+        font-size: 1.6rem;
+        font-weight: 600;
+    }
+
+
+    h2 {
+        color: var(--preto);
+
+        font-family: var(--fonte-titulo);
+        font-size: 2.6rem;
+        font-weight: 600;
+
+        line-height: 1;
+    }
+
+
+    /* ==================================================
+       DETAILS
+    ================================================== */
+
+    .resume-item {
+        margin-bottom: 14px;
+
+        border: 1px solid var(--cinza-claro);
+
+        background: rgba(255, 253, 250, 0.65);
+
+        transition:
+            border-color 0.25s ease,
+            background 0.25s ease;
+    }
+
+
+    .resume-item:hover {
+        border-color: rgba(107, 7, 0, 0.35);
+        background: var(--branco);
+    }
+
+
+    .resume-item summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 30px;
+
+        padding: 24px 28px;
+
+        cursor: pointer;
+
+        list-style: none;
+    }
+
+
+    .resume-item summary::-webkit-details-marker {
+        display: none;
+    }
+
+
+    .summary-content {
+        min-width: 0;
+    }
+
+
+    .summary-title {
+        color: var(--preto);
+
+        font-family: var(--fonte-titulo);
+        font-size: 1.7rem;
+        font-weight: 600;
+
+        line-height: 1.15;
+    }
+
+
+    .summary-meta {
+        margin-top: 6px;
+
+        color: var(--cinza);
+
+        font-size: 0.82rem;
+    }
+
+
+    .summary-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        flex-shrink: 0;
+
+        width: 30px;
+        height: 30px;
+
+        border: 1px solid var(--cinza-claro);
+
+        color: var(--vermelho);
+
+        font-size: 1rem;
+
+        transition:
+            transform 0.25s ease,
+            border-color 0.25s ease;
+    }
+
+
+    details[open] .summary-icon {
+        transform: rotate(45deg);
+
+        border-color: var(--vermelho);
+    }
+
+
+    .resume-content {
+        padding: 0 28px 28px;
+
+        border-top: 1px solid var(--cinza-claro);
+    }
+
+
+    .resume-content p {
+        margin-top: 22px;
+
+        color: var(--cinza-escuro);
+
+        font-size: 0.93rem;
+        line-height: 1.8;
+    }
+
+
+    .resume-content ul {
+        display: grid;
+        gap: 8px;
+
+        margin-top: 18px;
+        padding-left: 18px;
+    }
+
+
+    .resume-content li {
+        color: var(--cinza-escuro);
+
+        font-size: 0.9rem;
+    }
+
+
+    .resume-content li::marker {
+        color: var(--vermelho);
+    }
+
+
+    .experience-contact {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 20px;
+
+        margin-top: 18px;
+
+        color: var(--cinza);
+
+        font-size: 0.82rem;
+    }
+
+
+    .experience-contact strong {
+        color: var(--vermelho);
+    }
+
+
+    /* ==================================================
+       FORMAÇÃO
+    ================================================== */
+
+    .formation-list {
+        display: grid;
+        gap: 14px;
+    }
+
+
+    .formation-item {
+        display: grid;
+
+        grid-template-columns: 1fr auto;
+
+        gap: 30px;
+
+        padding: 22px 28px;
+
+        border: 1px solid var(--cinza-claro);
+
+        background: rgba(255, 253, 250, 0.65);
+
+        transition:
+            border-color 0.25s ease,
+            background 0.25s ease;
+    }
+
+
+    .formation-item:hover {
+        border-color: rgba(107, 7, 0, 0.35);
+        background: var(--branco);
+    }
+
+
+    .formation-title {
+        color: var(--preto);
+
+        font-family: var(--fonte-titulo);
+        font-size: 1.5rem;
+        font-weight: 600;
+
+        line-height: 1.2;
+    }
+
+
+    .formation-institution {
+        margin-top: 5px;
+
+        color: var(--cinza);
+        font-size: 0.84rem;
+    }
+
+
+    .formation-date {
+        align-self: center;
+
+        color: var(--vermelho);
+
+        font-size: 0.78rem;
+        font-weight: 700;
+
+        text-align: right;
+        white-space: nowrap;
+    }
+
+
+    /* ==================================================
+       STACK PROFISSIONAL
+    ================================================== */
+
+    .stack-grid {
+        display: grid;
+
+        grid-template-columns:
+            repeat(4, 1fr);
+
+        gap: 18px;
+    }
+
+
+    .stack-card {
+        position: relative;
+
+        padding: 28px;
+
+        border: 1px solid var(--cinza-claro);
+
+        background: var(--branco);
+
+        transition:
+            border-color 0.25s ease,
+            transform 0.25s ease;
+    }
+
+
+    .stack-card:hover {
+        border-color: rgba(107, 7, 0, 0.35);
+
+        transform: translateY(-3px);
+    }
+
+
+    .stack-card::before {
+        content: "";
+
+        position: absolute;
+        top: 0;
+        left: 28px;
+
+        width: 24px;
+        height: 2px;
+
+        background: var(--vermelho);
+    }
+
+
+    .stack-card h3 {
+        margin-bottom: 18px;
+
+        color: var(--vermelho);
+
+        font-family: var(--fonte-titulo);
+        font-size: 1.45rem;
+        font-weight: 600;
+    }
+
+
+    .stack-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px 8px;
+
+        list-style: none;
+    }
+
+
+    .stack-list li {
+        padding: 5px 9px;
+
+        border: 1px solid var(--cinza-claro);
+
+        color: var(--cinza-escuro);
+
+        font-size: 0.74rem;
+
+        line-height: 1.3;
+
+        background: var(--fundo);
+    }
+
+
+    /* ==================================================
+       RODAPÉ
+    ================================================== */
+
+    footer {
+        padding: 30px 0;
+
+        border-top: 1px solid var(--cinza-claro);
+
+        color: var(--cinza);
+
+        font-size: 0.76rem;
+
+        text-align: center;
+    }
+
+
+    footer p + p {
+        margin-top: 4px;
+    }
+
+
+    /* ==================================================
+       RESPONSIVIDADE
+    ================================================== */
+
+    @media (max-width: 1000px) {
+
+        .stack-grid {
+            grid-template-columns:
+                repeat(2, 1fr);
+        }
+
+    }
+
+
+    @media (max-width: 900px) {
+
+        .scroll-line {
+            right: 20px;
+        }
+
+    }
+
+
+    @media (max-width: 650px) {
+
+        .container {
+            width: min(
+                calc(100% - 44px),
+                var(--largura)
+            );
+        }
+
+
+        header {
+            padding: 60px 0 50px;
+        }
+
+
+        h1 {
+            font-size: 3.2rem;
+        }
+
+
+        .intro {
+            font-size: 0.9rem;
+        }
+
+
+        .contact {
+            flex-direction: column;
+            gap: 7px;
+        }
+
+
+        .section {
+            margin-bottom: 55px;
+        }
+
+
+        .section-header {
+            gap: 12px;
+        }
+
+
+        h2 {
+            font-size: 2.2rem;
+        }
+
+
+        .resume-item summary {
+            padding: 20px;
+        }
+
+
+        .resume-content {
+            padding: 0 20px 22px;
+        }
+
+
+        .summary-title {
+            font-size: 1.45rem;
+        }
+
+
+        .formation-item {
+            grid-template-columns: 1fr;
+
+            gap: 10px;
+
+            padding: 20px;
+        }
+
+
+        .formation-date {
+            text-align: left;
+        }
+
+
+        .stack-grid {
+            grid-template-columns: 1fr;
+        }
+
+
+        .scroll-line {
+            right: 10px;
+        }
+
+    }
+
+</style>
+
+
+</head>
+
+<body>
+
+<!-- ==================================================
+     LINHA DE SCROLL
+================================================== -->
+
+<div class="scroll-line" aria-hidden="true">
+
+    <div class="scroll-trail"></div>
+
+    <div class="scroll-light"></div>
+
+</div>
+
+
+<!-- ==================================================
+     CABEÇALHO
+================================================== -->
+
+<header>
+
+    <div class="container">
+
+        <div class="header-content">
+
+            <p class="eyebrow">
+                Currículo
+            </p>
+
+
+            <h1>
+                Alana Cristina<br>
+                de Moraes Ribeiro
+            </h1>
+
+
+            <p class="intro">
+                Estudante de Análise e Desenvolvimento de Sistemas,
+                com experiência profissional em tecnologia, atuando
+                principalmente com automação de processos, integração
+                de sistemas, APIs e suporte técnico. Tenho especial
+                interesse por desenvolvimento web e criação de
+                interfaces, utilizando tecnologias como HTML, CSS
+                e JavaScript.
+            </p>
+
+
+            <p class="intro">
+                Possuo experiência prática com ferramentas como n8n,
+                Power Automate, Bitrix24, 3CX e APIs de diferentes
+                sistemas, incluindo Meta e OpenAI, além do uso de
+                ferramentas de inteligência artificial como apoio
+                ao desenvolvimento e à prototipação de soluções.
+            </p>
+
+
+            <div class="contact">
+
+                <a href="mailto:alanaribeiro2007@gmail.com">
+                    alanaribeiro2007@gmail.com
+                </a>
+
+                <span>
+                    (41) 99813-6004
+                </span>
+
+                <span>
+                    Curitiba — PR
+                </span>
+
+            </div>
+
+
+            <div class="social-links">
+
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                    GitHub
+                </a>
+
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                    LinkedIn
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!-- ==================================================
+     CONTEÚDO PRINCIPAL
+================================================== -->
+
+<main>
+
+    <div class="container">
+
+
+        <!-- ==================================================
+             EXPERIÊNCIA PROFISSIONAL
+        ================================================== -->
+
+        <section class="section">
+
+            <div class="section-header">
+
+                <span class="section-number">
+                    01
+                </span>
+
+                <h2>
+                    Experiência profissional
+                </h2>
+
+            </div>
+
+
+            <details class="resume-item" open>
+
+                <summary>
+
+                    <div class="summary-content">
+
+                        <div class="summary-title">
+                            LTSL Encomendas Urgentes
+                        </div>
+
+                        <div class="summary-meta">
+                            04/2025 — Atual · Técnico de Informática
+                        </div>
+
+                    </div>
+
+
+                    <span class="summary-icon">
+                        +
+                    </span>
+
+                </summary>
+
+
+                <div class="resume-content">
+
+                    <p>
+                        Iniciei minha trajetória na empresa como
+                        estagiária e posteriormente fui efetivada
+                        como Técnica de Informática. Atualmente atuo
+                        com suporte técnico, automação de processos,
+                        integração de sistemas e desenvolvimento de
+                        soluções, contribuindo para a otimização de
+                        rotinas internas e para a integração entre
+                        diferentes ferramentas utilizadas pela empresa.
+                    </p>
+
+
+                    <div class="experience-contact">
+
+                        <span>
+                            <strong>Contato:</strong>
+                            (41) 3012-7522
+                        </span>
+
+                        <span>
+                            <strong>E-mail:</strong>
+                            ti1.mtz@ltsl.com.br
+                        </span>
+
+                        <span>
+                            <strong>Gestor direto</strong>
+                        </span>
+
+                    </div>
+
+
+                    <ul>
+
+                        <li>
+                            Atendimento de chamados e suporte técnico
+                            aos usuários, contribuindo para a resolução
+                            de problemas e continuidade das atividades.
+                        </li>
+
+                        <li>
+                            Suporte básico em hardware e infraestrutura,
+                            auxiliando na manutenção do ambiente de TI.
+                        </li>
+
+                        <li>
+                            Desenvolvimento de automações utilizando
+                            Power Automate para otimizar etapas de
+                            processos internos e reduzir atividades
+                            manuais.
+                        </li>
+
+                        <li>
+                            Desenvolvimento de fluxos e integrações
+                            utilizando n8n, conectando diferentes
+                            sistemas e ferramentas de acordo com as
+                            necessidades dos processos.
+                        </li>
+
+                        <li>
+                            Utilização e suporte a ferramentas como
+                            Bitrix24, SSW e 3CX, contribuindo para a
+                            operação e integração das soluções utilizadas
+                            pela empresa.
+                        </li>
+
+                        <li>
+                            Integração e utilização da API oficial do
+                            WhatsApp da Meta para viabilizar soluções
+                            de comunicação e automação.
+                        </li>
+
+                        <li>
+                            Utilização de ferramentas de inteligência
+                            artificial como apoio ao desenvolvimento,
+                            prototipação e criação de soluções,
+                            acelerando a exploração e validação de ideias.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </details>
+
+
+            <details class="resume-item">
+
+                <summary>
+
+                    <div class="summary-content">
+
+                        <div class="summary-title">
+                            Grupo Educacional Bom Jesus
+                        </div>
+
+                        <div class="summary-meta">
+                            02/2025 — 04/2025 · Assistente Administrativo
+                        </div>
+
+                    </div>
+
+
+                    <span class="summary-icon">
+                        +
+                    </span>
+
+                </summary>
+
+
+                <div class="resume-content">
+
+                    <p>
+                        Atuação como jovem aprendiz na unidade
+                        Água Verde, prestando suporte às atividades
+                        administrativas e contribuindo para a
+                        organização de documentos e processos.
+                    </p>
+
+
+                    <div class="experience-contact">
+
+                        <span>
+                            <strong>Contato:</strong>
+                            (41) 2105-4200
+                        </span>
+
+                    </div>
+
+
+                    <ul>
+
+                        <li>
+                            Organização de documentos, contratos
+                            e notas fiscais.
+                        </li>
+
+                        <li>
+                            Acompanhamento e controle de despesas.
+                        </li>
+
+                        <li>
+                            Utilização do pacote Microsoft Office,
+                            especialmente Excel e Word.
+                        </li>
+
+                        <li>
+                            Apoio às rotinas administrativas
+                            da unidade.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </details>
+
+        </section>
+
+
+        <!-- ==================================================
+             FORMAÇÃO
+        ================================================== -->
+
+        <section class="section">
+
+            <div class="section-header">
+
+                <span class="section-number">
+                    02
+                </span>
+
+                <h2>
+                    Formação
+                </h2>
+
+            </div>
+
+
+            <div class="formation-list">
+
+
+                <div class="formation-item">
+
+                    <div>
+
+                        <div class="formation-title">
+                            Análise e Desenvolvimento de Sistemas
+                        </div>
+
+                        <div class="formation-institution">
+                            Universidade Positivo
+                        </div>
+
+                    </div>
+
+
+                    <div class="formation-date">
+                        Conclusão prevista 12/2027
+                    </div>
+
+                </div>
+
+
+                <div class="formation-item">
+
+                    <div>
+
+                        <div class="formation-title">
+                            Assistente de Tecnologia da Informação
+                        </div>
+
+                        <div class="formation-institution">
+                            SENAC Paraná · 200h
+                        </div>
+
+                    </div>
+
+
+                    <div class="formation-date">
+                        Concluído 20/09/2022
+                    </div>
+
+                </div>
+
+
+                <div class="formation-item">
+
+                    <div>
+
+                        <div class="formation-title">
+                            Assistente Administrativo
+                        </div>
+
+                        <div class="formation-institution">
+                            SENAC Paraná · 160h
+                        </div>
+
+                    </div>
+
+
+                    <div class="formation-date">
+                        Concluído 20/09/2023
+                    </div>
+
+                </div>
+
+
+                <div class="formation-item">
+
+                    <div>
+
+                        <div class="formation-title">
+                            Excel Completo
+                        </div>
+
+                        <div class="formation-institution">
+                            SETCEPAR Paraná · 24h
+                        </div>
+
+                    </div>
+
+
+                    <div class="formation-date">
+                        Concluído 07/06/2025
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             STACK PROFISSIONAL
+        ================================================== -->
+
+        <section class="section">
+
+            <div class="section-header">
+
+                <span class="section-number">
+                    03
+                </span>
+
+                <h2>
+                    Competências
+                </h2>
+
+            </div>
+
+
+            <div class="stack-grid">
+
+
+                <div class="stack-card">
+
+                    <h3>
+                        Automação
+                    </h3>
+
+
+                    <ul class="stack-list">
+
+                        <li>
+                            N8N
+                        </li>
+
+                        <li>
+                            Power Automate
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="stack-card">
+
+                    <h3>
+                        Integrações
+                    </h3>
+
+
+                    <ul class="stack-list">
+
+                        <li>
+                            APIs REST
+                        </li>
+
+                        <li>
+                            Meta API
+                        </li>
+
+                        <li>
+                            OpenAI API
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="stack-card">
+
+                    <h3>
+                        Sistemas
+                    </h3>
+
+
+                    <ul class="stack-list">
+
+                        <li>
+                            Bitrix24
+                        </li>
+
+                        <li>
+                            3CX
+                        </li>
+
+                        <li>
+                            SSW
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="stack-card">
+
+                    <h3>
+                        Desenvolvimento
+                    </h3>
+
+
+                    <ul class="stack-list">
+
+                        <li>
+                            JavaScript
+                        </li>
+
+                        <li>
+                            HTML
+                        </li>
+
+                        <li>
+                            CSS
+                        </li>
+
+                        <li>
+                            SQL
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+    </div>
+
+</main>
+
+
+<!-- ==================================================
+     RODAPÉ
+================================================== -->
+
+<footer>
+
+    <div class="container">
+
+        <p>
+            Desenvolvido por Alana Cristina de Moraes Ribeiro
+        </p>
+
+        <p>
+            Última atualização em 01/10/2026
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- ==================================================
+     JAVASCRIPT — LINHA DE SCROLL
+================================================== -->
+
+<script>
+
+    const scrollLine =
+        document.querySelector(".scroll-line");
+
+    const scrollLight =
+        document.querySelector(".scroll-light");
+
+    const scrollTrail =
+        document.querySelector(".scroll-trail");
+
+
+    let currentPosition = 0;
+    let targetPosition = 0;
+
+    let scrollVelocity = 0;
+    let trailTimeout;
+
+    let currentScrollY =
+        window.scrollY;
+
+
+    /* ==================================================
+       CALCULA A POSIÇÃO DA BOLINHA
+    ================================================== */
+
+    function updateScrollPosition() {
+
+        const lineHeight =
+            scrollLine.clientHeight -
+            scrollLight.offsetHeight;
+
+
+        const maxScroll =
+            document.documentElement.scrollHeight -
+            window.innerHeight;
+
+
+        if (maxScroll <= 0) {
+
+            targetPosition = 0;
+
+            return;
+
+        }
+
+
+        const scrollProgress =
+            window.scrollY / maxScroll;
+
+
+        targetPosition =
+            scrollProgress * lineHeight;
+
+
+        targetPosition = Math.max(
+            0,
+            Math.min(
+                targetPosition,
+                lineHeight
+            )
+        );
+
+    }
+
+
+    /* ==================================================
+       EVENTO DE SCROLL
+    ================================================== */
+
+    window.addEventListener("scroll", () => {
+
+        updateScrollPosition();
+
+
+        scrollVelocity =
+            Math.min(
+                Math.abs(
+                    window.scrollY - currentScrollY
+                ),
+                100
+            );
+
+
+        currentScrollY =
+            window.scrollY;
+
+
+        const trailSize =
+            Math.min(
+                12 + scrollVelocity * 0.35,
+                48
+            );
+
+
+        scrollTrail.style.height =
+            `${trailSize}px`;
+
+
+        scrollTrail.style.top =
+            `${targetPosition}px`;
+
+
+        scrollTrail.style.opacity =
+            "0.45";
+
+
+        clearTimeout(trailTimeout);
+
+
+        trailTimeout = setTimeout(() => {
+
+            scrollTrail.style.opacity = "0";
+
+            scrollVelocity = 0;
+
+        }, 120);
+
+    }, {
+        passive: true
+    });
+
+
+    /* ==================================================
+       MOVIMENTO SUAVE DA BOLINHA
+    ================================================== */
+
+    function animateLight() {
+
+        currentPosition +=
+            (targetPosition - currentPosition) * 0.16;
+
+
+        if (
+            Math.abs(
+                targetPosition - currentPosition
+            ) < 0.05
+        ) {
+
+            currentPosition =
+                targetPosition;
+
+        }
+
+
+        scrollLight.style.top =
+            `${currentPosition}px`;
+
+
+        if (scrollVelocity > 0) {
+
+            scrollLight.style.boxShadow = `
+                0 0 6px rgba(107, 7, 0, 0.50),
+                0 0 18px rgba(67, 4, 0, 0.20)
+            `;
+
+        } else {
+
+            scrollLight.style.boxShadow = `
+                0 0 6px rgba(107, 7, 0, 0.45),
+                0 0 14px rgba(67, 4, 0, 0.16)
+            `;
+
+        }
+
+
+        requestAnimationFrame(animateLight);
+
+    }
+
+
+    /* ==================================================
+       POSIÇÃO INICIAL
+    ================================================== */
+
+    updateScrollPosition();
+
+    currentPosition =
+        targetPosition;
+
+
+    animateLight();
+
+
+    /* ==================================================
+       REDIMENSIONAMENTO
+    ================================================== */
+
+    window.addEventListener("resize", () => {
+
+        updateScrollPosition();
+
+
+        const lineHeight =
+            scrollLine.clientHeight -
+            scrollLight.offsetHeight;
+
+
+        currentPosition = Math.max(
+            0,
+            Math.min(
+                currentPosition,
+                lineHeight
+            )
+        );
+
+    });
+
+</script>
+
+
+</body>
+
+</html>
