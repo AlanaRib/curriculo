@@ -28,43 +28,51 @@
     <div class="container">
         <div class="header-content">
             <div class="header-topline">
-                <p class="eyebrow" data-i18n="resumeLabel">Currículo</p>
+                <div class="identity">
+                    <span class="brand-mark" aria-hidden="true">AR</span>
+                    <p class="eyebrow" data-i18n="resumeLabel">Currículo</p>
+                </div>
                 <nav class="language-switch" aria-label="Selecionar idioma" data-i18n-aria-label="languageSelector">
                     <button type="button" data-language="pt" lang="pt-BR" aria-label="Português" aria-pressed="true">PT</button>
                     <button type="button" data-language="en" lang="en" aria-label="English" aria-pressed="false">EN</button>
                 </nav>
             </div>
 
-            <h1>Alana Cristina<br>de Moraes Ribeiro</h1>
+            <h1>Alana Cristina<br><span class="name-accent">de Moraes Ribeiro</span></h1>
 
-            <p class="intro" data-i18n="introOne">
-                Estudante de Análise e Desenvolvimento de Sistemas,
-                com experiência profissional em tecnologia, atuando
-                principalmente com automação de processos, integração
-                de sistemas, APIs e suporte técnico. Tenho especial
-                interesse por desenvolvimento web e criação de
-                interfaces, utilizando tecnologias como HTML, CSS
-                e JavaScript.
-            </p>
+            <div class="profile-summary">
+                <p class="intro" data-i18n="introOne">
+                    Estudante de Análise e Desenvolvimento de Sistemas,
+                    com experiência profissional em tecnologia, atuando
+                    principalmente com automação de processos, integração
+                    de sistemas, APIs e suporte técnico. Tenho especial
+                    interesse por desenvolvimento web e criação de
+                    interfaces, utilizando tecnologias como HTML, CSS
+                    e JavaScript.
+                </p>
 
-            <p class="intro" data-i18n="introTwo">
-                Possuo experiência prática com ferramentas como n8n,
-                Bitrix24, 3CX e APIs de diferentes sistemas, incluindo
-                Meta e OpenAI, além do uso de ferramentas de inteligência
-                artificial como apoio ao desenvolvimento e à prototipação
-                de soluções.
-            </p>
-
-            <div class="contact">
-                <a href="mailto:alanaribeiro2007@gmail.com">alanaribeiro2007@gmail.com</a>
-                <a href="tel:+5541998136004">(41) 99813-6004</a>
-                <span data-i18n="location">Curitiba — PR</span>
+                <p class="intro" data-i18n="introTwo">
+                    Possuo experiência prática com ferramentas como n8n,
+                    Bitrix24, 3CX e APIs de diferentes sistemas, incluindo
+                    Meta e OpenAI, além do uso de ferramentas de inteligência
+                    artificial como apoio ao desenvolvimento e à prototipação
+                    de soluções.
+                </p>
             </div>
 
-            <div class="social-links">
-                <a href="https://github.com/AlanaRib/PROJECTS" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a href="https://www.linkedin.com/in/alana-ribeiro-28b484321" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            </div>
+            <aside class="profile-contact" aria-labelledby="contact-heading">
+                <h2 id="contact-heading" data-i18n="contactHeading">Contato</h2>
+                <div class="contact">
+                    <a href="mailto:alanaribeiro2007@gmail.com">alanaribeiro2007@gmail.com</a>
+                    <a href="tel:+5541998136004">(41) 99813-6004</a>
+                    <span data-i18n="location">Curitiba — PR</span>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://github.com/AlanaRib/PROJECTS" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://www.linkedin.com/in/alana-ribeiro-28b484321" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                </div>
+            </aside>
         </div>
     </div>
 </header>
@@ -77,60 +85,62 @@
                 <h2 data-i18n="experienceHeading">Experiência profissional</h2>
             </div>
 
-            <details class="resume-item" open>
-                <summary>
-                    <div class="summary-content">
-                        <div class="summary-title">LTSL Encomendas Urgentes</div>
-                        <div class="summary-meta" data-i18n="ltslMeta">04/2025 — Atual · Técnico de Informática</div>
+            <div class="section-body">
+                <details class="resume-item" open>
+                    <summary>
+                        <div class="summary-content">
+                            <div class="summary-title">LTSL Encomendas Urgentes</div>
+                            <div class="summary-meta" data-i18n="ltslMeta">04/2025 — Atual · Técnico de Informática</div>
+                        </div>
+                        <span class="summary-icon" aria-hidden="true">+</span>
+                    </summary>
+
+                    <div class="resume-content">
+                        <p data-i18n="ltslDescription">
+                            Iniciei minha trajetória na empresa como estagiária e posteriormente fui efetivada como Técnica de Informática. Atualmente atuo com suporte técnico, automação de processos, integração de sistemas e desenvolvimento de soluções, contribuindo para a otimização de rotinas internas e para a integração entre diferentes ferramentas utilizadas pela empresa.
+                        </p>
+
+                        <div class="experience-contact">
+                            <span><strong data-i18n="contactLabel">Contato:</strong> (41) 3012-7522</span>
+                            <span><strong data-i18n="emailLabel">E-mail:</strong> ti1.mtz@ltsl.com.br</span>
+                        </div>
+
+                        <ul>
+                            <li data-i18n="ltslBulletOne">Atendimento de chamados e suporte técnico aos usuários, contribuindo para a resolução de problemas e continuidade das atividades.</li>
+                            <li data-i18n="ltslBulletTwo">Suporte básico em hardware e infraestrutura, auxiliando na manutenção do ambiente de TI.</li>
+                            <li data-i18n="ltslBulletThree">Desenvolvimento de fluxos e integrações utilizando n8n, conectando diferentes sistemas e ferramentas de acordo com as necessidades dos processos.</li>
+                            <li data-i18n="ltslBulletFour">Utilização e suporte a ferramentas como Bitrix24, SSW e 3CX, contribuindo para a operação e integração das soluções utilizadas pela empresa.</li>
+                            <li data-i18n="ltslBulletFive">Integração e utilização da API oficial do WhatsApp da Meta para viabilizar soluções de comunicação e automação.</li>
+                            <li data-i18n="ltslBulletSix">Utilização de ferramentas de inteligência artificial como apoio ao desenvolvimento, prototipação e criação de soluções, acelerando a exploração e validação de ideias.</li>
+                        </ul>
                     </div>
-                    <span class="summary-icon" aria-hidden="true">+</span>
-                </summary>
+                </details>
 
-                <div class="resume-content">
-                    <p data-i18n="ltslDescription">
-                        Iniciei minha trajetória na empresa como estagiária e posteriormente fui efetivada como Técnica de Informática. Atualmente atuo com suporte técnico, automação de processos, integração de sistemas e desenvolvimento de soluções, contribuindo para a otimização de rotinas internas e para a integração entre diferentes ferramentas utilizadas pela empresa.
-                    </p>
+                <details class="resume-item">
+                    <summary>
+                        <div class="summary-content">
+                            <div class="summary-title">Grupo Educacional Bom Jesus</div>
+                            <div class="summary-meta" data-i18n="bomJesusMeta">02/2025 — 04/2025 · Assistente Administrativo</div>
+                        </div>
+                        <span class="summary-icon" aria-hidden="true">+</span>
+                    </summary>
 
-                    <div class="experience-contact">
-                        <span><strong data-i18n="contactLabel">Contato:</strong> (41) 3012-7522</span>
-                        <span><strong data-i18n="emailLabel">E-mail:</strong> ti1.mtz@ltsl.com.br</span>
+                    <div class="resume-content">
+                        <p data-i18n="bomJesusDescription">
+                            Atuação como jovem aprendiz na unidade Água Verde, prestando suporte às atividades administrativas e contribuindo para a organização de documentos e processos.
+                        </p>
+                        <div class="experience-contact">
+                            <span><strong data-i18n="contactLabel">Contato:</strong> (41) 2105-4200</span>
+                        </div>
+                        <ul>
+                            <li data-i18n="bomJesusBulletOne">Organização de documentos, contratos e notas fiscais.</li>
+                            <li data-i18n="bomJesusBulletTwo">Acompanhamento e controle de despesas.</li>
+                            <li data-i18n="bomJesusBulletThree">Utilização do pacote Microsoft Office, especialmente Excel e Word.</li>
+                            <li data-i18n="bomJesusBulletFour">Apoio às rotinas administrativas da unidade.</li>
+                        </ul>
                     </div>
-
-                    <ul>
-                        <li data-i18n="ltslBulletOne">Atendimento de chamados e suporte técnico aos usuários, contribuindo para a resolução de problemas e continuidade das atividades.</li>
-                        <li data-i18n="ltslBulletTwo">Suporte básico em hardware e infraestrutura, auxiliando na manutenção do ambiente de TI.</li>
-                        <li data-i18n="ltslBulletThree">Desenvolvimento de fluxos e integrações utilizando n8n, conectando diferentes sistemas e ferramentas de acordo com as necessidades dos processos.</li>
-                        <li data-i18n="ltslBulletFour">Utilização e suporte a ferramentas como Bitrix24, SSW e 3CX, contribuindo para a operação e integração das soluções utilizadas pela empresa.</li>
-                        <li data-i18n="ltslBulletFive">Integração e utilização da API oficial do WhatsApp da Meta para viabilizar soluções de comunicação e automação.</li>
-                        <li data-i18n="ltslBulletSix">Utilização de ferramentas de inteligência artificial como apoio ao desenvolvimento, prototipação e criação de soluções, acelerando a exploração e validação de ideias.</li>
-                    </ul>
-                </div>
-            </details>
-
-            <details class="resume-item">
-                <summary>
-                    <div class="summary-content">
-                        <div class="summary-title">Grupo Educacional Bom Jesus</div>
-                        <div class="summary-meta" data-i18n="bomJesusMeta">02/2025 — 04/2025 · Assistente Administrativo</div>
-                    </div>
-                    <span class="summary-icon" aria-hidden="true">+</span>
-                </summary>
-
-                <div class="resume-content">
-                    <p data-i18n="bomJesusDescription">
-                        Atuação como jovem aprendiz na unidade Água Verde, prestando suporte às atividades administrativas e contribuindo para a organização de documentos e processos.
-                    </p>
-                    <div class="experience-contact">
-                        <span><strong data-i18n="contactLabel">Contato:</strong> (41) 2105-4200</span>
-                    </div>
-                    <ul>
-                        <li data-i18n="bomJesusBulletOne">Organização de documentos, contratos e notas fiscais.</li>
-                        <li data-i18n="bomJesusBulletTwo">Acompanhamento e controle de despesas.</li>
-                        <li data-i18n="bomJesusBulletThree">Utilização do pacote Microsoft Office, especialmente Excel e Word.</li>
-                        <li data-i18n="bomJesusBulletFour">Apoio às rotinas administrativas da unidade.</li>
-                    </ul>
-                </div>
-            </details>
+                </details>
+            </div>
         </section>
 
         <section class="section">
@@ -139,37 +149,39 @@
                 <h2 data-i18n="educationHeading">Formação</h2>
             </div>
 
-            <div class="formation-list">
-                <div class="formation-item">
-                    <div>
-                        <div class="formation-title" data-i18n="educationOneTitle">Análise e Desenvolvimento de Sistemas</div>
-                        <div class="formation-institution">Universidade Positivo</div>
+            <div class="section-body">
+                <div class="formation-list">
+                    <div class="formation-item">
+                        <div>
+                            <div class="formation-title" data-i18n="educationOneTitle">Análise e Desenvolvimento de Sistemas</div>
+                            <div class="formation-institution">Universidade Positivo</div>
+                        </div>
+                        <div class="formation-date" data-i18n="educationOneDate">Conclusão prevista 12/2027</div>
                     </div>
-                    <div class="formation-date" data-i18n="educationOneDate">Conclusão prevista 12/2027</div>
-                </div>
 
-                <div class="formation-item">
-                    <div>
-                        <div class="formation-title" data-i18n="educationTwoTitle">Assistente de Tecnologia da Informação</div>
-                        <div class="formation-institution">SENAC Paraná · 200h</div>
+                    <div class="formation-item">
+                        <div>
+                            <div class="formation-title" data-i18n="educationTwoTitle">Assistente de Tecnologia da Informação</div>
+                            <div class="formation-institution">SENAC Paraná · 200h</div>
+                        </div>
+                        <div class="formation-date" data-i18n="educationTwoDate">Concluído 20/09/2022</div>
                     </div>
-                    <div class="formation-date" data-i18n="educationTwoDate">Concluído 20/09/2022</div>
-                </div>
 
-                <div class="formation-item">
-                    <div>
-                        <div class="formation-title" data-i18n="educationThreeTitle">Assistente Administrativo</div>
-                        <div class="formation-institution">SENAC Paraná · 160h</div>
+                    <div class="formation-item">
+                        <div>
+                            <div class="formation-title" data-i18n="educationThreeTitle">Assistente Administrativo</div>
+                            <div class="formation-institution">SENAC Paraná · 160h</div>
+                        </div>
+                        <div class="formation-date" data-i18n="educationThreeDate">Concluído 20/09/2023</div>
                     </div>
-                    <div class="formation-date" data-i18n="educationThreeDate">Concluído 20/09/2023</div>
-                </div>
 
-                <div class="formation-item">
-                    <div>
-                        <div class="formation-title" data-i18n="educationFourTitle">Excel Completo</div>
-                        <div class="formation-institution">SETCEPAR Paraná · 24h</div>
+                    <div class="formation-item">
+                        <div>
+                            <div class="formation-title" data-i18n="educationFourTitle">Excel Completo</div>
+                            <div class="formation-institution">SETCEPAR Paraná · 24h</div>
+                        </div>
+                        <div class="formation-date" data-i18n="educationFourDate">Concluído 07/06/2025</div>
                     </div>
-                    <div class="formation-date" data-i18n="educationFourDate">Concluído 07/06/2025</div>
                 </div>
             </div>
         </section>
@@ -180,34 +192,36 @@
                 <h2 data-i18n="skillsHeading">Competências</h2>
             </div>
 
-            <div class="stack-grid">
-                <div class="stack-card">
-                    <h3 data-i18n="languagesHeading">Idiomas</h3>
-                    <ul class="stack-list" id="language-list">
-                        <li>Inglês fluente</li>
-                        <li>Espanhol intermediário</li>
-                    </ul>
-                </div>
+            <div class="section-body">
+                <div class="stack-grid">
+                    <div class="stack-card">
+                        <h3 data-i18n="languagesHeading">Idiomas</h3>
+                        <ul class="stack-list" id="language-list">
+                            <li>Inglês fluente</li>
+                            <li>Espanhol intermediário</li>
+                        </ul>
+                    </div>
 
-                <div class="stack-card">
-                    <h3 data-i18n="integrationsHeading">Integrações</h3>
-                    <ul class="stack-list">
-                        <li>APIs REST</li><li>Meta API</li><li>OpenAI API</li>
-                    </ul>
-                </div>
+                    <div class="stack-card">
+                        <h3 data-i18n="integrationsHeading">Integrações</h3>
+                        <ul class="stack-list">
+                            <li>APIs REST</li><li>Meta API</li><li>OpenAI API</li>
+                        </ul>
+                    </div>
 
-                <div class="stack-card">
-                    <h3 data-i18n="systemsHeading">Sistemas</h3>
-                    <ul class="stack-list">
-                        <li>Bitrix24</li><li>3CX</li><li>SSW</li>
-                    </ul>
-                </div>
+                    <div class="stack-card">
+                        <h3 data-i18n="systemsHeading">Sistemas</h3>
+                        <ul class="stack-list">
+                            <li>Bitrix24</li><li>3CX</li><li>SSW</li>
+                        </ul>
+                    </div>
 
-                <div class="stack-card">
-                    <h3 data-i18n="developmentHeading">Desenvolvimento</h3>
-                    <ul class="stack-list">
-                        <li>JavaScript</li><li>HTML</li><li>CSS</li><li>SQL</li><li>n8n</li>
-                    </ul>
+                    <div class="stack-card">
+                        <h3 data-i18n="developmentHeading">Desenvolvimento</h3>
+                        <ul class="stack-list">
+                            <li>JavaScript</li><li>HTML</li><li>CSS</li><li>SQL</li><li>n8n</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
