@@ -38,4 +38,9 @@ O currículo apresenta:
 ```text
 curriculo/
 ├── index.html
+├── CSS/
+│   └── style.css
+├── JS/
+│   └── app.js
 └── README.md
+```
