@@ -6,6 +6,7 @@
 const translations = {
     pt: {
         documentTitle: "Currículo — Alana Cristina de Moraes Ribeiro",
+        documentDescription: "Currículo de Alana Cristina de Moraes Ribeiro: experiência em suporte técnico, automação de processos, integrações e desenvolvimento web.",
         languageSelector: "Selecionar idioma",
         resumeLabel: "Currículo",
         introOne: "Estudante de Análise e Desenvolvimento de Sistemas, com experiência profissional em tecnologia, atuando principalmente com automação de processos, integração de sistemas, APIs e suporte técnico. Tenho especial interesse por desenvolvimento web e criação de interfaces, utilizando tecnologias como HTML, CSS e JavaScript.",
@@ -44,10 +45,11 @@ const translations = {
         developmentHeading: "Desenvolvimento",
         languageItems: ["Inglês fluente", "Espanhol intermediário"],
         footerCredit: "Desenvolvido por Alana Cristina de Moraes Ribeiro",
-        footerUpdated: "Última atualização em 21/10/2026"
+        footerUpdated: "Última atualização em 28/10/2026"
     },
     en: {
         documentTitle: "Resume — Alana Cristina de Moraes Ribeiro",
+        documentDescription: "Resume of Alana Cristina de Moraes Ribeiro: experience in technical support, process automation, system integrations, and web development.",
         languageSelector: "Select language",
         resumeLabel: "Resume",
         introOne: "Systems Analysis and Development student with professional experience in technology, primarily focused on process automation, system integrations, APIs, and technical support. Particularly interested in web development and interface design, using technologies such as HTML, CSS, and JavaScript.",
@@ -86,7 +88,7 @@ const translations = {
         developmentHeading: "Development & Automation",
         languageItems: ["English — Fluent", "Spanish — Intermediate", "Portuguese (Brazil) — Fluent"],
         footerCredit: "Developed by Alana Cristina de Moraes Ribeiro",
-        footerUpdated: "Last updated: October 21, 2026"
+        footerUpdated: "Last updated: October 28, 2026"
     }
 };
 
@@ -97,6 +99,10 @@ function setLanguage(language) {
 
     document.documentElement.lang = selectedLanguage === "en" ? "en-US" : "pt-BR";
     document.title = content.documentTitle;
+    document.querySelector('meta[name="description"]').content = content.documentDescription;
+    document.querySelector('meta[property="og:title"]').content = content.documentTitle;
+    document.querySelector('meta[property="og:description"]').content = content.documentDescription;
+    document.querySelector('meta[property="og:locale"]').content = selectedLanguage === "en" ? "en_US" : "pt_BR";
 
     document.querySelectorAll("[data-i18n]").forEach((element) => {
         const key = element.dataset.i18n;
@@ -133,81 +139,105 @@ document.querySelectorAll("[data-language]").forEach((button) => {
 /* Sempre começa em português, sem localStorage ou preferência persistida. */
 setLanguage("pt");
 
-/* ==================================================
-   JAVASCRIPT — LINHA DE SCROLL
-================================================== */
-
+/* Indicador de rolagem: mede em eventos e anima apenas enquanto necessário. */
 const scrollLine = document.querySelector(".scroll-line");
 const scrollLight = document.querySelector(".scroll-light");
 const scrollTrail = document.querySelector(".scroll-trail");
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 let currentPosition = 0;
 let targetPosition = 0;
-let scrollVelocity = 0;
+let lineHeight = 0;
+let maxScroll = 0;
+let frameId = null;
 let trailTimeout;
 let currentScrollY = window.scrollY;
+let lastFrameTime = null;
 
-function updateScrollPosition() {
-    const lineHeight = scrollLine.clientHeight - scrollLight.offsetHeight;
-    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+function renderLight() {
+    scrollLight.style.transform = `translate(-50%, -50%) translateY(${currentPosition}px)`;
+}
 
-    if (maxScroll <= 0) {
-        targetPosition = 0;
-        return;
+function animateLight(time) {
+    frameId = null;
+    const elapsed = lastFrameTime === null ? 1000 / 60 : Math.min(time - lastFrameTime, 64);
+    lastFrameTime = time;
+    currentPosition += (targetPosition - currentPosition) * (1 - Math.pow(0.84, elapsed / (1000 / 60)));
+    if (Math.abs(targetPosition - currentPosition) < 0.05) {
+        currentPosition = targetPosition;
+        lastFrameTime = null;
+    } else {
+        frameId = requestAnimationFrame(animateLight);
     }
+    renderLight();
+}
 
-    const scrollProgress = window.scrollY / maxScroll;
-    targetPosition = Math.max(0, Math.min(scrollProgress * lineHeight, lineHeight));
+function updateScrollPosition(immediate = false) {
+    const progress = maxScroll > 0 ? Math.max(0, Math.min(window.scrollY / maxScroll, 1)) : 0;
+    targetPosition = progress * lineHeight;
+    if (immediate || reducedMotion.matches) {
+        if (frameId !== null) cancelAnimationFrame(frameId);
+        frameId = null;
+        lastFrameTime = null;
+        currentPosition = targetPosition;
+        renderLight();
+    } else if (frameId === null && Math.abs(targetPosition - currentPosition) >= 0.05) {
+        frameId = requestAnimationFrame(animateLight);
+    }
+}
+
+function measureScroll() {
+    lineHeight = Math.max(0, scrollLine.clientHeight - scrollLight.offsetHeight);
+    maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+    updateScrollPosition(true);
+}
+
+function clearTrail() {
+    clearTimeout(trailTimeout);
+    scrollLine.classList.remove("is-scrolling");
 }
 
 window.addEventListener("scroll", () => {
-    updateScrollPosition();
-
-    scrollVelocity = Math.min(Math.abs(window.scrollY - currentScrollY), 100);
+    const velocity = Math.min(Math.abs(window.scrollY - currentScrollY), 100);
     currentScrollY = window.scrollY;
-
-    const trailSize = Math.min(12 + scrollVelocity * 0.35, 48);
-    scrollTrail.style.height = `${trailSize}px`;
-    scrollTrail.style.top = `${targetPosition}px`;
-    scrollTrail.style.opacity = "0.45";
-
+    updateScrollPosition();
+    if (reducedMotion.matches || document.hidden) return;
+    scrollTrail.style.height = `${Math.min(12 + velocity * 0.35, 48)}px`;
+    scrollTrail.style.transform = `translateX(-50%) translateY(${targetPosition}px)`;
+    scrollLine.classList.add("is-scrolling");
     clearTimeout(trailTimeout);
-    trailTimeout = setTimeout(() => {
-        scrollTrail.style.opacity = "0";
-        scrollVelocity = 0;
-    }, 120);
+    trailTimeout = setTimeout(clearTrail, 120);
 }, { passive: true });
 
-function animateLight() {
-    currentPosition += (targetPosition - currentPosition) * 0.16;
+window.addEventListener("resize", measureScroll);
+window.addEventListener("pageshow", measureScroll);
+reducedMotion.addEventListener("change", () => {
+    clearTrail();
+    measureScroll();
+});
+document.addEventListener("visibilitychange", () => {
+    clearTrail();
+    updateScrollPosition(true);
+});
 
-    if (Math.abs(targetPosition - currentPosition) < 0.05) {
-        currentPosition = targetPosition;
-    }
-
-    scrollLight.style.top = `${currentPosition}px`;
-
-    if (scrollVelocity > 0) {
-        scrollLight.style.boxShadow = `
-            0 0 6px rgba(107, 7, 0, 0.50),
-            0 0 18px rgba(67, 4, 0, 0.20)
-        `;
-    } else {
-        scrollLight.style.boxShadow = `
-            0 0 6px rgba(107, 7, 0, 0.45),
-            0 0 14px rgba(67, 4, 0, 0.16)
-        `;
-    }
-
-    requestAnimationFrame(animateLight);
+// Inclui mudanças causadas por traduções, fontes e expansão das experiências.
+if ("ResizeObserver" in window) {
+    new ResizeObserver(measureScroll).observe(document.body);
 }
+document.querySelectorAll("details").forEach((item) => item.addEventListener("toggle", measureScroll));
+document.fonts.ready.then(measureScroll);
+measureScroll();
 
-updateScrollPosition();
-currentPosition = targetPosition;
-animateLight();
-
-window.addEventListener("resize", () => {
-    updateScrollPosition();
-    const lineHeight = scrollLine.clientHeight - scrollLight.offsetHeight;
-    currentPosition = Math.max(0, Math.min(currentPosition, lineHeight));
+/* Abre as experiências para impressão e restaura a seleção ao terminar. */
+let printDetails = null;
+window.addEventListener("beforeprint", () => {
+    if (printDetails !== null) return;
+    printDetails = Array.from(document.querySelectorAll("details"), (item) => ({ item, open: item.open }));
+    printDetails.forEach(({ item }) => { item.open = true; });
+});
+window.addEventListener("afterprint", () => {
+    if (printDetails === null) return;
+    printDetails.forEach(({ item, open }) => { item.open = open; });
+    printDetails = null;
+    measureScroll();
 });
