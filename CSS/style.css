@@ -1,8 +1,8 @@
 :root {
-    --vermelho: #920608;
-    --vermelho-escuro: #53070e;
-    --vermelho-suave: #ad2027;
-    --vermelho-rgb: 146, 6, 8;
+    --vermelho: #6d2338;
+    --vermelho-escuro: #52182b;
+    --vermelho-suave: #8a3b54;
+    --vermelho-rgb: 109, 35, 56;
     --preto: #1c1c22;
     --cinza-escuro: #42424b;
     --cinza: #656570;
@@ -144,10 +144,10 @@ footer { padding: 26px 0; border-top: 1px solid var(--cinza-claro); color: var(-
 footer p + p { margin-top: 4px; }
 
 /* Indicador de leitura. */
-.scroll-line { position: fixed; top: 8vh; right: 22px; width: 1px; height: 84vh; background: linear-gradient(transparent, #92060835 15%, #92060835 85%, transparent); z-index: 20; pointer-events: none; }
-.scroll-light { position: absolute; top: 0; left: 50%; width: 5px; height: 5px; transform: translate(-50%, -50%); border-radius: 50%; background: var(--vermelho); box-shadow: 0 0 8px #92060845; transition: box-shadow 0.2s ease; }
-.scroll-trail { position: absolute; top: 0; left: 50%; width: 1px; transform: translateX(-50%); background: linear-gradient(transparent, #92060865, transparent); opacity: 0; transition: height 0.12s ease, opacity 0.2s ease; }
-.scroll-line.is-scrolling .scroll-light { box-shadow: 0 0 6px #92060880, 0 0 18px #53070e33; }
+.scroll-line { position: fixed; top: 8vh; right: 22px; width: 1px; height: 84vh; background: linear-gradient(transparent, #6d233835 15%, #6d233835 85%, transparent); z-index: 20; pointer-events: none; }
+.scroll-light { position: absolute; top: 0; left: 50%; width: 5px; height: 5px; transform: translate(-50%, -50%); border-radius: 50%; background: var(--vermelho); box-shadow: 0 0 8px #6d233845; transition: box-shadow 0.2s ease; }
+.scroll-trail { position: absolute; top: 0; left: 50%; width: 1px; transform: translateX(-50%); background: linear-gradient(transparent, #6d233865, transparent); opacity: 0; transition: height 0.12s ease, opacity 0.2s ease; }
+.scroll-line.is-scrolling .scroll-light { box-shadow: 0 0 6px #6d233880, 0 0 18px #52182b33; }
 .scroll-line.is-scrolling .scroll-trail { opacity: 0.45; }
 
 /* Telas menores e movimento reduzido. */
